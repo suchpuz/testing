@@ -24,8 +24,10 @@ mv        || change location of a file. U have to be in the directory of the fil
               NOTE: if the file u have to move and the folder where u want to move it are located in different folders u have to write the whole path for both of em
               ex. mv ~/catkin_ws/src/linux_course_files/my_scripts ~/catkin_ws/src/linux_course_files/move_bb8_pkg       (note: tilde means home folder of the user)
           
-cp        ||  make a copy of a file in the same directory of the old one     ex.  cp m.py mcopy.py   <-- make a copy of m.py in a new file called mcopy.py
+cp        ||  make a copy of a file in the same directory of the old one         ex.  cp m.py mcopy.py      <-- make a copy of m.py in a new file called mcopy.py
 cp -r     || copy a whole folder  ex. cp -r my_scripts/ my_scripts_copy/
 
 rm        || remove a file   ex. rm <file to remove>
 rm -r     || remove a folder rm -r my_scripts_copy
+
+chmod     || used to modify the permissions of a given file or directory          ex. chmod +x m.py    <-- aggiunge il permesso di execute sul file m_by
