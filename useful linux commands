@@ -1,0 +1,12 @@
+commands  || description
+pwd       || show the current path
+cd ../    ||  move back 
+ls        || show folder and files in the current path (no hidden ones
+ls -la    || show all folder and files
+ls -help  || info on other commands u can plug on ls
+mkdir     || create new folder in the current path
+touch     || create new file in the current path       ex. touch myfile.txt
+vi        || modify a file, 2 modes: commands and insert (when u type vi u start in commands mode).  Pressing "i" u go in insert mode, "esc" to go back to the commands mode
+             in order to save a file type ":wq" in commands mode
+mv        || change location of a file. U have to be in the directory of the file u want to move.        ex. mv my_scripts move_bb8_pkg       --> move my_scripts from
+             its current location to move_bb8_pkg
