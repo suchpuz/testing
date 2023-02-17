@@ -1,5 +1,6 @@
 COMMANDS  || DESCRIPTION
 
+./        || execute ex. ./file.txt
 
 pwd       || show the current path
 
@@ -14,12 +15,14 @@ ls -help  || info on other commands u can plug on ls
 mkdir     || create new folder in the current path
 
 touch     || create new file in the current path       ex. touch myfile.txt
+             to create a script: touch script.sh  NOTE: the first line of the bash script have to be "#!/bin/bash"
 
 vi        || modify a file, 2 modes: commands and insert (when u type vi u start in commands mode).  Pressing "i" u go in insert mode, "esc" to go back to the commands mode
              in order to save a file type ":wq" in commands mode
              to just go out press :q
              
-mv        || change location of a file. U have to be in the directory of the file u want to move.        Structure: mv <file/folder we want to move> <destination>     
+mv        || change location of a file. U have to be in the directory of the file u want to move.        
+              Structure: mv <file/folder we want to move> <destination>     
               ex. mv my_scripts move_bb8_pkg       --> move my_scripts from its current location to move_bb8_pkg
               NOTE: if the file u have to move and the folder where u want to move it are located in different folders u have to write the whole path for both of em
               ex. mv ~/catkin_ws/src/linux_course_files/my_scripts ~/catkin_ws/src/linux_course_files/move_bb8_pkg       (note: tilde means home folder of the user)
@@ -31,3 +34,12 @@ rm        || remove a file   ex. rm <file to remove>
 rm -r     || remove a folder rm -r my_scripts_copy
 
 chmod     || used to modify the permissions of a given file or directory          ex. chmod +x m.py    <-- aggiunge il permesso di execute sul file m_by
+
+gedit     || txt editor
+
+source .bashrc    || restart the shell (useful if u want to modify the bashrc without close and open the shell)
+
+grep      || command to show only a portion of the results ex. ls | grep bb8  shows only folder/files with "bb8" as part of their name
+
+
+  
