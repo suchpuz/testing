@@ -62,5 +62,8 @@ tmux new -s session_name create a new session
 - tmux a -t session_name attach to session
 - tmux kill-session -t session_name kill session
 
+- x entrare in scroll mode -> ctrl + b -> [
+- x uscire da scroll mode  -> q
+
 
   
