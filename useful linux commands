@@ -42,4 +42,14 @@ source .bashrc    || restart the shell (useful if u want to modify the bashrc wi
 grep      || command to show only a portion of the results ex. ls | grep bb8  shows only folder/files with "bb8" as part of their name
 
 
+
+*********ROS************
+per iniziare: 
+(1)  distrobox-enter robotics
+(2)  roscore   <-- inizializza il nodo master
+
+x leggere l'id del nodo master:   pgrep rosmaster
+
+
+
   
