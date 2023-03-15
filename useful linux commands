@@ -51,5 +51,16 @@ per iniziare:
 x leggere l'id del nodo master:   pgrep rosmaster
 
 
+x split terminale (ricorda che è installato su distrobox):
+
+tmux new -s session_name create a new session
+- ctrl+b -> % split vertically
+- ctrl+b -> “ split horizontally
+- ctrl+b -> arrow move to a different terminal
+- ctrl+b -> d exit session
+- tmux a attach to last session
+- tmux a -t session_name attach to session
+- tmux kill-session -t session_name kill session
+
 
   
