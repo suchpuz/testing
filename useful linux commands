@@ -65,5 +65,13 @@ tmux new -s session_name create a new session
 - x entrare in scroll mode -> ctrl + b -> [
 - x uscire da scroll mode  -> q
 
+lab2
 
+rostopic hz /turtle1/pose         ->  turtle1/pose è un topic, hz restituisce la frequenza con la quale viene restituito il dato dal topic
+
+rqt_graph -> vista grafica del collegamento nodi
+
+https://itsfoss.com/replace-linux-from-dual-boot/
+mi serve 20.04
+https://phoenixnap.com/kb/install-ubuntu-20-04
   
