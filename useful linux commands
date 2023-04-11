@@ -74,3 +74,5 @@ rosrun plotjuggler plotjuggler
   
 catkin_create_pkg test std_msgs rospy roscpp       crea package di nome test
 catkin_make
+
+https://nu-msr.github.io/navigation_site/lectures/node_structure.html
