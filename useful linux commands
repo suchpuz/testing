@@ -82,3 +82,4 @@ catkin_make
   rosrun first_project odom_node
   rosbag play --clock -l first.bag
   
+killall -9 rosmaster    x chiudere roscore se non restarta
