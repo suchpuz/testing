@@ -1,0 +1,114 @@
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+//#include <tf/transform_broadcaster.h>
+#include <nav_msgs/Odometry.h>
+ #include "sensor_msgs/LaserScan.h"
+ #include <tf2/LinearMath/Quaternion.h>
+ #include <tf2_ros/transform_broadcaster.h>
+ #include <geometry_msgs/TransformStamped.h>
+ #include <std_msgs/Int32.h>
+#include <cstring>
+
+class pub_sub
+{
+
+private:
+double val;
+ros::NodeHandle n; 
+//tf::TransformBroadcaster br;
+ros::Subscriber sub;
+ros::Subscriber sub2;	
+ros::Publisher pub2;
+ros::Publisher pub;
+nav_msgs::Odometry odom2;
+public:
+  	pub_sub(){
+
+
+    //sub2 = n.subscribe("/scan", 1000, &pub_sub::laser_callback, this);  //1000 è queue size
+  	sub = n.subscribe("/t265/odom", 1000, &pub_sub::odom_callback, this);  //1000 è queue size
+	  pub = n.advertise<nav_msgs::Odometry>("/odom", 1);
+    //pub2 = n.advertise<sensor_msgs::LaserScan>("/laser2", 1000);
+	
+	
+
+}
+
+void laser_callback(const sensor_msgs::LaserScan::ConstPtr& scan){
+  sensor_msgs::LaserScan laser2;
+  laser2.header.seq = scan->header.seq; 
+  laser2.header.stamp = ros::Time::now();
+  laser2.header.frame_id = "laser2";
+  laser2.angle_min = scan->angle_min;
+  laser2.angle_max = scan->angle_max;
+  laser2.angle_increment = scan->angle_increment;
+  laser2.time_increment = scan->time_increment;
+  laser2.scan_time = scan->scan_time;
+  laser2.range_min = scan->range_min;
+  laser2.range_max = scan->range_max;
+  laser2.ranges = scan->ranges;
+pub2.publish(laser2);
+
+
+}
+void odom_callback(const nav_msgs::OdometryConstPtr& msg){
+  //tf::Transform transform;
+  ros::Rate rate(200);
+  ros::Time tempo = ros::Time::now();
+
+  static tf2_ros::TransformBroadcaster br;
+  geometry_msgs::TransformStamped odom;
+  odom.header.stamp = msg->header.stamp;
+  odom.header.frame_id = "odom";
+  odom.child_frame_id = "base_link";       //t265
+  //transform.setOrigin(tf::Vector3(msg->pose.pose.position.x,msg->pose.pose.position.y,msg->pose.pose.position.z));
+  odom.transform.translation.x = msg->pose.pose.position.x;
+  odom.transform.translation.y = msg->pose.pose.position.y;
+  odom.transform.translation.z = msg->pose.pose.position.z;
+//ROS_INFO("x = %f",odom.transform.translation.x  );
+  //tf::Quaternion quat;
+  //geometry_msgs::Quaternion quat;
+  //tf2::Quaternion quat;
+  //quat.x=msg->pose.pose.orientation.x;
+  //quat.y=msg->pose.pose.orientation.y;
+  //quat.z=msg->pose.pose.orientation.z;
+  //quat.w=msg->pose.pose.orientation.w;
+  //odom.transform.rotation = quat;
+ ///// br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "base_footprint"));
+odom.transform.rotation.x = msg->pose.pose.orientation.x;
+odom.transform.rotation.y = msg->pose.pose.orientation.y;
+odom.transform.rotation.z = msg->pose.pose.orientation.z;
+odom.transform.rotation.w = msg->pose.pose.orientation.w;
+  br.sendTransform(odom);
+
+  odom2.header.stamp = msg->header.stamp;
+  ROS_INFO_STREAM("  "<< msg->header.stamp<<"  ");
+  odom2.header.frame_id = "odom";
+  odom2.child_frame_id = "base_link";
+
+  odom2.pose.pose.position.x = msg->pose.pose.position.x;
+  odom2.pose.pose.position.y = msg->pose.pose.position.y;
+  odom2.pose.pose.position.z = msg->pose.pose.position.z;
+  //odom2.pose.pose.orientation = quat;
+
+  odom2.pose.pose.orientation.x = msg->pose.pose.orientation.x;
+  odom2.pose.pose.orientation.y = msg->pose.pose.orientation.x;
+  odom2.pose.pose.orientation.z = msg->pose.pose.orientation.x;
+  odom2.pose.pose.orientation.w = msg->pose.pose.orientation.x;
+  pub.publish(odom2);
+  rate.sleep();
+}
+
+
+
+
+};
+
+int main(int argc, char **argv)
+{
+ 	ros::init(argc, argv, "tf_publisher");
+ 	pub_sub my_pub_sub;
+  
+ 	ros::spin();
+ 	return 0;
+}
