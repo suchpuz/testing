@@ -1,0 +1,15 @@
+<launch>
+required="true"
+<param name="/use_sim_time" value="true"/>
+<node pkg="tf2_ros" type="static_transform_publisher" name="maptoodom" args="0 0 0 0 0 0 1 map odom " />
+<node pkg="tf2_ros" type="static_transform_publisher" name="t265tofootprint" args="0 0 0 0 0 0 1 t265 base_footprint " />
+<node pkg="tf2_ros" type="static_transform_publisher" name="footprint_to_baselink" args="0 0 0.20950000000000002 0 0 0 1 base_footprint base_link" />
+
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="baselink_to_velodyne" args="0.18 0.0 0.17 0.0 -0.04348628248541267 0.0 0.999054024182676 base_link velodyne" />
+
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_laser" args="0.18 0 0.04 0.0 -0.04348628248541267 0.0 0.999054024182676 base_link laser" />
+
+
+</launch>
