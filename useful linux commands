@@ -86,6 +86,6 @@ killall -9 rosmaster    x chiudere roscore se non restarta
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-g++ -c helloworld.cpp helloworldexe       <- compila c++ file
+make helloworld       <- compila il file chiamato helloworld.cpp nella current folder e crea l'eseguibile "helloworld" nella stessa cartella
 
 
