@@ -84,4 +84,8 @@ catkin_make
   
 killall -9 rosmaster    x chiudere roscore se non restarta
 
-https://answers.ros.org/question/388471/sensor_msgslaserscanmsg-range_max-should-be-discarded/  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+g++ -c helloworld.cpp helloworldexe       <- compila c++ file
+
+
