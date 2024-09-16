@@ -43,6 +43,9 @@ source .bashrc    || restart the shell (useful if u want to modify the bashrc wi
 
 grep      || command to show only a portion of the results ex. ls | grep bb8  shows only folder/files with "bb8" as part of their name
 
+(2024)
+code .    || start visual studio from the directory where u actually are in shell
+
 
 
 *********ROS************
