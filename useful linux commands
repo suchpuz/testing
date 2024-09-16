@@ -47,6 +47,11 @@ grep      || command to show only a portion of the results ex. ls | grep bb8  sh
 code .    || start visual studio from the directory where u actually are in shell
 
 
+*************runnare  correttamente file con funzioni************
+crea cartella src --> dentro ci metti main.cpp, funzioni.cpp
+crea dentro src cartella build
+crea dentro src CMakeLists.txt e riempilo 
+cd build -> Cmake .. -> make
 
 *********ROS************
 per iniziare: 
